@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cod_nav_graph"
+    app:startDestination="@id/codFragment">
+
+    <fragment
+        android:id="@+id/codFragment"
+        android:name="com.app99minutos.cod.CodFragment"
+        android:label="fragment_cod"
+        tools:layout="@layout/fragment_cod" />
+</navigation>

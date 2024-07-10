@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/copilot_nav_graph"
+    >
+
+    <include app:graph="@navigation/copilot_nav_graph" />
+    <include app:graph="@navigation/cod_nav_graph" />
+
+    <action android:id="@+id/actionCopilot"
+        app:destination="@id/copilot_nav_graph"/>
+
+    <action android:id="@+id/actionCod"
+        app:destination="@id/cod_nav_graph"/>
+
+
+
+</navigation>

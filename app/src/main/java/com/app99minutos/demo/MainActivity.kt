@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 com.app99minutos.user.R.id.loginFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }
+
                 else -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }

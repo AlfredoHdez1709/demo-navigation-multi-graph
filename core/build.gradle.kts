@@ -38,6 +38,7 @@ android {
 dependencies {
     implementation(project(":copilot"))
     implementation(project(":cod"))
+    implementation(project(":mi-unidad"))
 
 
     implementation(libs.androidx.core.ktx)

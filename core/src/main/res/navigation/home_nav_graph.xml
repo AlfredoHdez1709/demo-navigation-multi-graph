@@ -7,6 +7,7 @@
 
     <include app:graph="@navigation/copilot_nav_graph" />
     <include app:graph="@navigation/cod_nav_graph" />
+    <include app:graph="@navigation/vehicle_nav_graph" />
 
     <action android:id="@+id/actionCopilot"
         app:destination="@id/copilot_nav_graph"/>
@@ -14,6 +15,8 @@
     <action android:id="@+id/actionCod"
         app:destination="@id/cod_nav_graph"/>
 
+    <action android:id="@+id/actionVehicle"
+        app:destination="@id/vehicle_nav_graph"/>
 
 
 </navigation>

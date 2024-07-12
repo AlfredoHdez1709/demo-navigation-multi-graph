@@ -11,7 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.app99minutos.core.databinding.BottomSheetLayoutBinding
 import com.app99minutos.demo.databinding.ActivityMainBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +26,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        navController = navHostFragment.navController
-        setupWithNavController(binding.bottomNavigation, navController)
 
+        navController = navHostFragment.navController
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when(destination.id) {
                 com.app99minutos.user.R.id.registerFragment,
@@ -39,9 +40,35 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId) {
+                com.app99minutos.core.R.id.actionMenu -> {
+                    showBottomSheetDialog()
+                    true
+                }
+                else -> {
+                    navController.navigate(it.itemId)
+                    true
+                }
+            }
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    private fun showBottomSheetDialog() {
+        val dialogBinding = BottomSheetLayoutBinding.inflate(layoutInflater)
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(dialogBinding.root)
+        bottomSheetDialog.show()
+
+        dialogBinding.opc1.setOnClickListener {
+            bottomSheetDialog.dismiss()
+            navController.navigate(com.app99minutos.mi_unidad.R.id.vehicle_nav_graph)
+        }
     }
 }
